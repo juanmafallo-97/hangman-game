@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setWord } from '../actions/setWord';
-import { selectWord } from '../assets/words';
-import GameBoard from './GameBoard';
-import InputWord from './InputWord';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setWord } from "../actions/setWord";
+import { selectWord } from "../assets/words";
+import GameBoard from "./GameBoard";
+import InputWord from "./InputWord";
 
 const Game = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Game = () => {
 
   useEffect(() => {
     if (players === 1) dispatch(setWord(selectWord()));
-  }, []);
+  }, [players, dispatch]);
 
   return (
     <div>

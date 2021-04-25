@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateWord } from "../actions/updateWord";
 import InputLetter from "./InputLetter";
 import Letter from "./Letter";
+import Lives from "./Lives";
 import Message from "./Message";
 import "./styles/GameBoard.css";
 
@@ -21,11 +22,14 @@ const GameBoard = () => {
   return (
     <>
       <div className="word">{wordRender}</div>
-      <div>
+      <div className="input-container">
         <InputLetter />
       </div>
-      <div>
+      <div className="message-container">
         <Message />
+      </div>
+      <div className="lives-container">
+        <Lives />
       </div>
     </>
   );

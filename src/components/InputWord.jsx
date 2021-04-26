@@ -38,7 +38,7 @@ const InputWord = () => {
           type="text"
           onChange={onChange}
           value={value}
-          className="word-input"
+          className="word-input input"
         />
         <button type="submit" className="button">
           Confirmar

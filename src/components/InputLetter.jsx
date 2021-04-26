@@ -56,7 +56,7 @@ const InputLetter = () => {
           type="text"
           onChange={onChange}
           value={value}
-          className="letter-input"
+          className="letter-input input"
           placeholder="Letra..."
         />
         <button type="submit" className="button">

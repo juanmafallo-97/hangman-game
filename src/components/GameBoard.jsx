@@ -9,7 +9,9 @@ import Message from "./Message";
 const GameBoard = () => {
   const word = useSelector((state) => state.word);
   const secondaryWord = useSelector((state) => state.secondaryWord);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(updateWord(new Array(word.length).fill("")));
   }, [word, dispatch]);

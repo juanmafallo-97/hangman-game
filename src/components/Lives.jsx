@@ -3,5 +3,5 @@ import { useSelector } from "react-redux";
 
 export default function Lives() {
   const lives = useSelector((state) => state.lives);
-  return <div>Vidas restantes: {lives}</div>;
+  return <div className="lives">Vidas restantes: {lives}</div>;
 }

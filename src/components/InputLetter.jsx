@@ -52,8 +52,16 @@ const InputLetter = () => {
   return (
     <div>
       <form onSubmit={checkLetter}>
-        <input type="text" onChange={onChange} value={value} />
-        <button type="submit">Verificar</button>
+        <input
+          type="text"
+          onChange={onChange}
+          value={value}
+          className="letter-input"
+          placeholder="Letra..."
+        />
+        <button type="submit" className="button">
+          Verificar
+        </button>
       </form>
     </div>
   );

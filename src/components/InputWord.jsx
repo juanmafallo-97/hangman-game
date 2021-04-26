@@ -34,8 +34,15 @@ const InputWord = () => {
     <div>
       <form action="" onSubmit={onSubmit}>
         <label htmlFor="">Ingrese la palabra con la que se va a jugar</label>
-        <input type="text" onChange={onChange} value={value} />
-        <button type="submit">Confirmar</button>
+        <input
+          type="text"
+          onChange={onChange}
+          value={value}
+          className="word-input"
+        />
+        <button type="submit" className="button">
+          Confirmar
+        </button>
       </form>
       <Message />
     </div>

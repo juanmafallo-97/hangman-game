@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap");
+
+* {
+  font-family: "Oxygen Mono", monospace;
+  text-align: center;
+}
+
+html {
+  font-size: 150%;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter {
+  width: 30px;
+  border-bottom: 2px solid black;
+  font-size: 2rem;
+  margin: 5px;
+  text-align: center;
+}
+.word-container {
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  margin: 1rem;
+}

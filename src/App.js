@@ -1,5 +1,6 @@
-import React from 'react';
-import GameContainer from './components/GameContainer';
+import React from "react";
+import GameContainer from "./components/GameContainer";
+import "./assets/index.css";
 
 function App() {
   return (

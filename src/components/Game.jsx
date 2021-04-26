@@ -16,7 +16,7 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Jugadores: {players}</h1>
+      <h1>{players === 1 ? "Modo de un Jugador" : "Modo Multijugador"}</h1>
       {players === 1 ? <GameBoard /> : word ? <GameBoard /> : <InputWord />}
     </div>
   );

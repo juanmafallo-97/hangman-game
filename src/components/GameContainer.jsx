@@ -1,11 +1,12 @@
-import React from "react";
-import {} from "redux";
-import { useSelector, useDispatch } from "react-redux";
-import { setPlayers } from "../actions/setPlayers";
-import { setWord } from "../actions/setWord";
-import { updateWord } from "../actions/updateWord";
-import { setLives } from "../actions/setLives";
-import Game from "./Game";
+import React from 'react';
+import {} from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPlayers } from '../actions/setPlayers';
+import { setWord } from '../actions/setWord';
+import { updateWord } from '../actions/updateWord';
+import { setLives } from '../actions/setLives';
+import { removeLetters } from '../actions/incLettersActions';
+import Game from './Game';
 
 const GameContainer = () => {
   const players = useSelector((state) => state.players);
@@ -30,11 +31,13 @@ const GameContainer = () => {
           <Game />
           <button
             onClick={() => {
-              dispatch(setWord(""));
+              dispatch(setWord(''));
               dispatch(setPlayers(0));
               dispatch(updateWord([]));
+              dispatch(removeLetters());
               dispatch(setLives(7 - lives));
             }}
+            className="button"
           >
             Volver a seleccion de jugadores
           </button>

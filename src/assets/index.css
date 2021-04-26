@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap');
 
 * {
-  font-family: "Oxygen Mono", monospace;
+  font-family: 'Oxygen Mono', monospace;
   text-align: center;
 }
 
@@ -36,14 +36,14 @@ html {
 
 .input {
   margin: 10px;
-  height: 1.5rem;
+  height: 1.4rem;
   transition: all 0.4s;
 }
 .input:focus {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .input:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .letter-input {
@@ -51,12 +51,12 @@ html {
 }
 
 .word-input {
+  font-size: 1rem;
 }
 
 .button {
   border-style: none;
   border: 1px solid black;
-  border-radius: 3px;
   background-color: #fff;
   margin: 5px;
   height: 1.5rem;
@@ -68,5 +68,5 @@ html {
 .button:hover {
   color: #fff;
   background-color: #000;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }

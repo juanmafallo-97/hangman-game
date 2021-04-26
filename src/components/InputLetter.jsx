@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setMessage } from "../actions/setMessge";
-import { setLives } from "../actions/setLives";
-import { updateWord } from "../actions/updateWord";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setMessage } from '../actions/setMessge';
+import { setLives } from '../actions/setLives';
+import { updateWord } from '../actions/updateWord';
+import { addIncLetter } from '../actions/incLettersActions';
 
 const InputLetter = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   const word = Array.from(useSelector((state) => state.word));
   const secondaryWord = useSelector((state) => state.secondaryWord);
+  const incLetters = useSelector((state) => state.incLetters);
   const dispatch = useDispatch();
 
   const onChange = (e) => {
@@ -18,22 +20,28 @@ const InputLetter = () => {
   const checkLetter = (e) => {
     e.preventDefault();
     const input = value.toUpperCase();
-    const symbols = ["Á", "É", "Í", "Ó", "Ú"];
+    const invalidLetter = /[^A-Z]/gi;
     if (input.length === 0) return;
     if (input.length > 1) {
-      const message = "Debe ingresar una sola letra";
+      const message = 'Debe ingresar una sola letra';
       dispatch(setMessage(message));
-    } else if (symbols.includes(input)) {
-      const message = "La letra no debe contener símbolos";
-      dispatch(setMessage(message));
-    } else {
-      setValue("");
-      dispatch(setMessage(""));
-      validateLetter(input);
+      return;
     }
+    if (invalidLetter.test(input)) {
+      const message = 'La letra no debe contener símbolos, espacios o tiles';
+      dispatch(setMessage(message));
+      return;
+    }
+    if (repeatedLetter(input, secondaryWord, incLetters)) {
+      dispatch(setMessage(`La letra ${input} ya fue ingresada`));
+      return;
+    }
+    setValue('');
+    dispatch(setMessage(''));
+    validateLetter(input, word);
   };
 
-  const validateLetter = (letter) => {
+  const validateLetter = (letter, word) => {
     if (word.includes(letter)) {
       const indexes = [];
       word.forEach((element, index) => {
@@ -45,7 +53,15 @@ const InputLetter = () => {
       });
       dispatch(updateWord(updatedWord));
     } else {
+      dispatch(addIncLetter(letter));
       dispatch(setLives(-1));
+    }
+  };
+
+  const repeatedLetter = (letter, secondaryWord, incLetters) => {
+    if (secondaryWord.includes(letter)) return true;
+    if (incLetters.includes(letter)) {
+      return true;
     }
   };
 
